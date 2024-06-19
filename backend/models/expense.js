@@ -6,7 +6,7 @@ const expenseSchema = new mongoose.Schema({
             required:true
         },
 
-        date:{
+        date:{ 
             type: Date,
             required:false
         },
