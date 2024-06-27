@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const incomeSchema = new mongoose.Schema({
-        person:{
+        title:{
             type: String,
             required:true
         },
@@ -16,7 +16,8 @@ const incomeSchema = new mongoose.Schema({
         }, 
         type : {
             type: String, 
-            required: true,
+            required: false,
+            default:"income"
         },
         category: {
             type: String,

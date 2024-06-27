@@ -8,10 +8,11 @@ import Navigation from './components/Navigation/navigation'
 import Income from "./components/income/income.js"
 import Dashboard from "./components/DashBoard/Dashboard.js"
 import Expenses from "./components/expenses/expenses.js"
-
+import { useGlobalContext } from './context/globalContext.js';
 
 function App() {
   const [active, setActive] = useState(1)
+ 
 
   const displayData = () => {
     switch(active){
@@ -32,7 +33,7 @@ function App() {
     <AppStyled bg={bg} className="App">
     
    <MainLayout>
-    <Navigation active={active} setActive={setActive} />
+    <Navigation active={active} setActive={setActive}/>
     <main>
     {displayData()}
     </main>

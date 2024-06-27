@@ -3,7 +3,7 @@ import Income from "../models/income.js";
 
 
 //income department
-export const getIncome = async(req,res)=>{
+export const getIncomes = async(req,res)=>{
     try{
         const transactions = await Income.find({}).sort({createdAt:-1});
         res.status(200).json(transactions);
@@ -18,7 +18,7 @@ export const addIncome = async(req,res)=>{
     //  const data =
     const{person,title, type, amount, category, description, date} = req.body;
     try{
-        const transaction = await Income.create({person, type, amount, category, description, date});
+        const transaction = await Income.create({person, type, amount, category, description, date, title});
         res.status(200).json(transaction);
     }catch(error){
        res.status(400).json({error: error.message});

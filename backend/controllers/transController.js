@@ -4,7 +4,7 @@ import Expense from "../models/expense.js";
 
 
 //expense department
-export const getTransactions = async(req,res)=>{
+export const getExpenses = async(req,res)=>{
     try{
         const transactions = await Expense.find({}).sort({createdAt:-1});
         res.status(200).json(transactions);
@@ -19,7 +19,7 @@ export const addExpense = async(req,res)=>{
     //  const data =
     const{person,title, type, amount, category, description, date} = req.body;
     try{
-        const transaction = await Expense.create({person, type, amount, category, description, date});
+        const transaction = await Expense.create({person,title, type, amount, category, description, date});
         res.status(200).json(transaction);
     }catch(error){
        res.status(400).json({error: error.message});

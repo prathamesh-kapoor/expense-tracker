@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
 
 const expenseSchema = new mongoose.Schema({
-        person:{
+        title:{
             type: String,
             required:true
         },
-
         date:{ 
             type: Date,
             required:false
@@ -16,7 +15,8 @@ const expenseSchema = new mongoose.Schema({
         }, 
         type : { //credit or debit  useful if you use one schema for all the transaction 
             type: String, 
-            required: true,
+            required: false,
+            default: "expense"
         },
         category: {
             type: String,
