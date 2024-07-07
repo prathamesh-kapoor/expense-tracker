@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
+import { useGlobalContext } from '../../context/globalContext'
 
 function Navigation({active, setActive}) {
-    
+    const {totalBalance} = useGlobalContext();
     return (
         <NavStyled>
             <div className="user-con">
                 <img src="" alt="photo" />
                 <div className="text">
                     <h2>Prthmesh</h2>
-                    <p>Your Money</p>
+                    <p>Your Money: ₹{totalBalance()}</p>
                 </div>
             </div>
             <ul className="menu-items">
@@ -63,6 +64,7 @@ const NavStyled = styled.nav`
         }
         p{
             color: rgba(34, 34, 96, .6);
+
         }
     }
 
